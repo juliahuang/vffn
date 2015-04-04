@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+  <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+</head>
+<body>
+  <div class="page">
+    <div class="content-container">
+      <div class="question">
+      </div>
+    </div>
+  </div>
+  <div class="scores">
+      <ul>
+        <li class="family-container f1">
+          <div class="score">0</div>
+          <div class="family">JBAPB</div>
+        </li>
+        <li class="family-container f2">
+          <div class="score">0</div>
+          <div class="family">BFFL</div>
+        </li>
+        <li class="family-container f3">
+          <div class="score">0</div>
+          <div class="family">> U</div>
+        </li>
+        <li class="family-container f4">
+          <div class="score">0</div>
+          <div class="family">Funky Shrimp</div>
+        </li>
+        <li class="family-container f5">
+          <div class="score">0</div>
+          <div class="family">Gangstas</div>
+        </li>
+      </ul>
+  </div>
+</body>
+
+<div class="question-pit">
+  <div class="q"></div>
+  <div class="q introslide">VICTOR'S</div>
+  <div class="q introslide">FAMILY</div>
+  <div class="q introslide">FUN</div>
+  <div class="q introslide">NIGHT</div>
+  <div class="q">
+    <h1>Victor's Family Fun Night!</h1>
+    <h2>(wooooooooooo!)</h2>
+  </div>
+  <div class="q titleslide">
+    LIGHTNING TRIVIA
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    We enjoy using acronyms in ATS. In case you didn’t know, ATS is also an acronym. What does the T in ATS stand for?
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    The front of one of the ATS shirts says we’ve got quite a lot of things! Pastries, boba.. etc etc.. what is the last item on this list?
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    What year of the zodiac was it last year?
+  </div>
+  
+  
+  <div class="q"></div>
+  <div class="q">
+    What is the zodiac symbol for the year two years before three years after the next leap year?
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    The traditional ATS Midterm Care Package slip (the handwritten one, not the typed one) has a little package with a parachute in the bottom right hand corner. What is the color of the parachute?
+  </div>
+  <div class="q">
+    <img src="css/carepackage.png" height="300"/></div>
+  <div class="q">
+    <img src="css/carepackage-e.png" height="300"/></div>
+    
+  <div class="q"></div>
+  <div class="q">
+    Guess the year. Although ATS was created before this year, the constitution was actually founded in this year. It was an odd year. It was not a leap year. It is actually one year before the year when most seniors today were born. 
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    This is the name of an annual ATS Event. This event was first run 5 years ago. In the fall, newly paired little/bigs and their families come together in an epic battle of physical ability and teamwork. What is the name of this event? 
+  </div>
+  <div class="q">
+    <img src="https://scontent-a.xx.fbcdn.net/hphotos-ash3/t1.0-9/1382301_219294291573207_65404641_n.jpg" height="300"/>
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    During this frighteningly cold month, something exciting happens over one particular weekend. What is the name of this group that forms - this group comes together to solve some of campus’ most difficult mysteries and goes on a long sleepless hunt for answers. 
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    No, not Salt and Pepper. No, not Small and Petit. No, not Serial Port... although all of these share the same initials as the answer. This is the name of an ATS dish that commonly appears during xifan sunday, as well as an occasional GBM or two! What is this delightful flat-edible item containing a fair amount of scallions?
+  </div>
+  <div class="q">
+    <img src="http://p-ec2.pixstatic.com/51b09c1374c5b675ac000c20._w.540_s.fit_.jpg" height="300">
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    In 2009, every member of ATS exec lived at NEXT HOUSE, except for one person. This one individual later became president of ATS. Name one of the two places this individual lived while at MIT.
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    This is the name of a Strait to Taiwan booth. Although it doesn’t offer food, this booth featured an activity that generated amusement through the physics of a ping pong ball. What is the name of this booth?
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    Name the number of family members in YOUR FAMILY that is currently at this event.
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    One event, known as mochi and friends, had CUSTOM NAME TAGS for all the exec members. WHICH exec member was associated with the FORTUNE COOKIE, as shown in the image shown here?<br />
+    <img height=300 src="css/whomochiandfriends.png" />
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    ATS’ iconic logo was designed over a decade ago. On this logo, there are 2 animals. What are these animals, and what is the corresponding text that is integrated with each of these animals? 
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    These are the names to the presidents of ATS
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    Found in 2007. Name this group of people that originated from some elderly ATS members who shared a common interest. Today, this group is an ASA student group, puts on performances in rooms on campus, and is a musical group that sings without instrumental music. 
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    What is this name of this event? One of our previous ATS Exec Members, left a mark in the ceiling of McCormick because of this ATS event. It is currently a small, brown, blotch in the corner of the ceiling in the dining room. Today, this is an ATS event that we run yearly for eager prefrosh that wishes to launch sticky balls of starch at ATS Members.
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    This is an attribute of ATS Exec Members. Look around you. This attribute has been decreasing since 2009, although the introduction of Landon might have changed this. What is this attribute of ATS Exec?
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    Give, within a +-100 million range, a estimate of the current population of Taiwan
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    On the ATS Website, there is a consistent header that stays the same on every page. How many images are on this top bar? 
+  </div>
+  <div class="q">
+  <img src="/css/header.png" height=300/>
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+  <img src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-prn2/t1.0-9/1375922_216399285196041_1955872729_n.jpg" height=500 />
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+  <img src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-ash3/t1.0-9/1450971_231974936971809_1017200924_n.jpg" height=500 />
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+  <img src="https://scontent-b.xx.fbcdn.net/hphotos-prn1/t31.0-8/905291_253061151529854_1823079842_o.jpg" height=500 />
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+  <img src="css/event1.png" height=500 />
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+  Give a +- 3 estimate of the number of lychees jellies found in one jar of lychee jellies containing a full jar’s worth of lychee jellies
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+  Taipei 101 was the highest building for roughly 6 years. What year did it gain and lose this title?
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+  The answer to this question is a phrase. This phrase can be found on something given to you at the beginning of the year (supposedly). Printed on mostly blue and black ink with a design unchanged over the years, this sign comes with every ATS membership. What is the text on the bottom of this sign welcoming you to ATS?
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+  For <em>(-2)^(n-2)</em> points, where n is the number of different presidents you can name, name the presidents starting with THIS YEAR in reverse chronological order.<br /><br /><br /><br />
+  </div>
+  <div class="q">
+  For <em>(-2)^(n-2)</em> points, where n is the number of different presidents you can name, name the presidents starting with THIS YEAR in reverse chronological order.<br /><br />
+  <span class="pres">0</span> presidents named<br />
+  <span class="pts">1</span> points
+  </div>
+  
+  <div class="q titleslide">
+    SPELLING BEEEEEEEEES
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+  SPELL the name of this mailing list commonly used by the ATS exec members. This mailing list generally contains pub emails about our events.
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+  SPELL the first name of this ATS Exec member whose name anagrams to something that is the opposite of unsalty.
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+  SPELL the name of a restaurant in Allston. ATS often orders food for it’s events from this restaurants. This restaurant is nice enough to give us a discount and provide us with delicious, authentic, Taiwanese food, and yet we’ve managed to botch their simple 10 letter name...
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+  SPELL this other place ATS commonly sources it’s food from. Though food is used for a different purpose, people appreciate it’s delicious dough based products equally. The name of this establishment has two repeating words. What is the name of the establishment where our pastries come from?
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+  SPELL the name of this traditional Chinese food, made of glutinous rice stuffed with different fillings and wrapped in bamboo, reed, or other large flat leaves.
+  </div>
+
+
+  <div class="q"></div>
+  <div class="q">
+  SPELL this popular brand of sauce that is a necessary ingredient in most all Taiwanese cuisine. This sauce is salty with a distinctive aroma, and can be used both as an ingredient in many dishes such as pork rice and tea eggs, as well as a dipping sauce for foods such as dumplings and scallion pancakes. It is made from soy beans, and this brand is found in basically every Asian restaurant you’ve ever been to...
+  </div>      
+  
+  <div class="q">
+    <img src="http://www.meijer.com/assets/product_images/styles/xlarge/1003855_5507_A_400.jpg" height="300">
+  </div>
+  
+      
+  <div class="q"></div>
+  <div class="q">
+  SPELL the name of this adorable critter commonly associated with Emily Yang, one of our past presidents. Hint: It is a small white dog with floppy ears
+  </div>
+  <div class="q">
+  <img src="http://2.bp.blogspot.com/_RmqtTFTyBDI/TOa1SEEnrHI/AAAAAAAAAG0/lcq-TPM5Lyg/s1600/01_Pochacco.jpg.gif">
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+  SPELL the name of this wonderful food event where all exec members roll out of bed (or try to) bright and early before 9am to stir pots and pots of wet rice.
+  </div>
+          
+  <div class="q"></div>
+  <div class="q">
+  SPELL the name of this Asian snack that everyone loves. It has been subject to family field day games, the object of affection for many alum (Steph Chang), and its clear, trapezoidal shape is the symbol of hope and delight for many. It jiggles and it wiggles, it’s sweet and it’s chewy, dotted with cubes of this wonderful fruit inside...
+  </div>
+
+  <div class="q introslide">FINAL ROUND</div> 
+  <div class="q introslide">EVENT ROULETTE</div> 
+  <div class="q eve"></div> 
+  
+
+
+</div>
+<script type='text/javascript'>
+$(document).ready(function(){
+  // constants!
+  var STARTSLIDE = 0;
+  
+  var $qlist = [];
+  var slide = STARTSLIDE;
+  var pres = 0;
+  var numEvents = 0;
+  $('.question-pit').children('.q').each(function(){
+    $qlist.push($(this));
+  })
+  $('.question').html($qlist[slide]);
+  $.get('js/events.txt', function(data){
+     t = data.split('\n');
+     t.reverse();
+  })
+  
+  $("body").keydown(function(e) {
+    console.log(slide);
+    console.log(e.keyCode);
+    if(e.keyCode == 37) { // left
+      if (slide > 0) {
+        slide --;
+        $('.question').html($qlist[slide]);
+      }
+    } else if(e.keyCode == 39) { // right
+      if (slide < $qlist.length-1) {
+        slide ++;
+        $('.question').html($qlist[slide]);
+      }
+    } else if(e.keyCode == 38) {
+      pres += 1;
+      $('.pres').text(pres);
+      $('.pts').text(Math.pow(-2, pres-2));
+    } else if (e.keyCode == 40) {
+      pres -= 1;
+      $('.pres').text(pres);
+      $('.pts').text(Math.pow(-2, pres-2));
+    } else if (e.keyCode == 79) {
+      $('.question').html('<h1>OUCH!</h1>');
+    } else if (e.keyCode == 221) {
+      numEvents += 1;
+      $('.eve').text('');
+      for (i = 0; i < numEvents; i ++) {
+        $('.eve').append(t[i] + "... ")
+      }
+    } else if (e.keyCode == 219) {
+      numEvents -= 1;
+      $('.eve').text('');
+      for (i = 0; i < numEvents; i ++) {
+        $('.eve').append(t[i] + "... ")
+      }
+    }
+    
+  });
+})
+</script>
+<script type="text/javascript">
+  var socket = io.connect('http://localhost');
+  socket.on('news', function (data) {
+    console.log(data);
+    $('.f' + data.kp).addClass('buzzin');
+    if (data.kp == 'R') {
+      for (i = 1; i < 6 ; i ++) {
+        $('.f' + i).removeClass('buzzin');
+      }
+    }
+  });
+  
+  var myDataRef = new Firebase('https://stagesimple.firebaseio.com/ATS/');
+  myDataRef.on('value', function(snapshot) {
+    console.log('um');
+    o = snapshot.val();
+    for (ki in Object.keys(o))
+      $('.f' + (parseInt(ki) + 1)).find('.score').text(o['f' + (parseInt(ki) + 1)]);
+  })
+</script>
+
+</html>
