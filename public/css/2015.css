@@ -13,6 +13,25 @@ body {
   background-size: 20%;
 }
 
+.timer {
+  position: fixed;
+  width: 200px;
+  top: 20px;
+  left: calc(50% - 100px);
+  background-color: #333;
+  text-align: center;
+  color: #eee;
+  font-size: 50px;
+  padding: 10px 0;
+  display: none;
+}
+
+.norman-red {
+  background-color: #B82121 !important;
+  width: 400px !important;
+  left: calc(50% - 200px);
+}
+
 .scores {
   width: 100%;
   position: fixed;
