@@ -76,6 +76,16 @@ td:nth-child(2) {
   transition-duration: 3s;
 }
 
+.content-jiggle {
+  animation: jiggle 0.1s infinite;
+  -webkit-animation: jiggle 0.1s infinite;
+  -moz-animation-duration: 0.1s;
+  -moz-animation-name: jiggle;
+  -moz-animation-iteration-count: infinite;
+  -webkit-transform: translate3d(0, 150%, 0) scale3d(3.6, 3.6, 1) rotate(-1deg);
+  -moz-transform: translate3d(0, 150%, 0) scale3d(3.6, 3.6, 1) rotate(-1deg);
+}
+
 .scores {
   width: 100%;
   position: fixed;
@@ -225,4 +235,32 @@ em {
 .place-5::before {
   text-align: center;
   content: "5";
+}
+
+
+@keyframes jiggle {
+    0% {
+        transform: translate3d(0, 150%, 0) scale3d(3.6, 3.6, 1) rotate(-1deg);
+  }
+  50% {
+      transform: translate3d(0, 150%, 0) scale3d(3.6, 3.6, 1) rotate(1deg);
+  }
+}
+
+@-webkit-keyframes jiggle {
+    0% {
+        -webkit-transform: translate3d(0, 150%, 0) scale3d(3.6, 3.6, 1) rotate(-1deg);
+  }
+  50% {
+      -webkit-transform: translate3d(0, 150%, 0) scale3d(3.6, 3.6, 1) rotate(1deg);
+  }
+}
+
+@-moz-keyframes jiggle {
+    0% {
+        -moz-transform: translate3d(0, 150%, 0) scale3d(3.6, 3.6, 1) rotate(-1deg);
+  }
+  50% {
+    -moz-transform: translate3d(0, 150%, 0) scale3d(3.6, 3.6, 1) rotate(1deg);
+  }
 }
