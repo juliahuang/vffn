@@ -3,6 +3,12 @@ html {
 }
 
 body {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.content {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -54,6 +60,16 @@ td:nth-child(2) {
   background-color: #B82121 !important;
   width: 400px !important;
   left: calc(50% - 200px);
+}
+
+.content-shrink {
+
+  transform: translate3d(0, 100%, 0) scale3d(3.0, 3.0, 1) !important;
+  -webkit-transform: translate3d(0, 100%, 0) scale3d(3.0, 3.0, 1) !important;
+
+  -webkit-transition-timing-function: cubic-bezier(1,.01,.96,.81);
+  -webkit-transition-duration: 3s;
+  transition-duration: 3s;
 }
 
 .scores {

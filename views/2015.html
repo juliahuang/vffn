@@ -11,6 +11,7 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 </head>
 <body>
+<div class="content">
   <div class="timer">
     10
   </div>
@@ -50,6 +51,7 @@
         </li>
       </ul>
   </div>
+</div>
 </body>
 
 <div class="question-pit">
@@ -164,7 +166,7 @@
 $(document).ready(function(){
 
   // constants!
-  var STARTSLIDE = 5;
+  var STARTSLIDE = 0;
   var TIMER_VALUE = 10.1;
 
   var timerValue = TIMER_VALUE;
@@ -192,7 +194,6 @@ $(document).ready(function(){
       timer = setInterval(function() {
         timerValue -= 0.1;
         timerValue = Math.round(timerValue * 10) / 10
-        console.log(Math.round(timerValue*10), timerValue*10)
         if (Math.round(timerValue)*10 == timerValue*10) {
           zeros = '.0';
         } else {
@@ -201,7 +202,10 @@ $(document).ready(function(){
         if (timerValue < 0) {
           $('.timer').text("TIME'S UP");
           $('.timer').addClass('norman-red');
+          $('.content').removeClass('content-shrink')
           clearInterval(timer);
+        } else if (timerValue == 3.0) {
+          $('.content').addClass('content-shrink')
         } else {
           $('.timer').text(timerValue + zeros);
         }
@@ -254,7 +258,6 @@ $(document).ready(function(){
         $q = $qlist[slide];
         $q.find('tr:nth-child('+answerIndex+') td:nth-child(1)').text(answerDB[answerIndex].a);
         $q.find('tr:nth-child('+answerIndex+') td:nth-child(2)').text(answerDB[answerIndex].p);
-        console.log(parseInt(k)-48);
       }
     }
   }
@@ -262,6 +265,7 @@ $(document).ready(function(){
   $("body").keydown(function(e) {
     console.log('slide:' , slide);
     console.log('keypress:', e.keyCode);
+
     playFF(e.keyCode);
 
     if(e.keyCode == 37) { // left
@@ -313,7 +317,6 @@ $(document).ready(function(){
   var place = 1;
   var socket = io.connect('http://localhost');
   socket.on('news', function (data) {
-    console.log(data);
     $('.f' + data.kp).addClass('buzzin');
     $('.f' + data.kp).find('.place').addClass('place-' + place);
     place ++;
@@ -330,7 +333,6 @@ $(document).ready(function(){
   
   var myDataRef = new Firebase('https://stagesimple.firebaseio.com/ATS/');
   myDataRef.on('value', function(snapshot) {
-    console.log('um');
     o = snapshot.val();
     for (ki in Object.keys(o))
       $('.f' + (parseInt(ki) + 1)).find('.score').text(o['f' + (parseInt(ki) + 1)]);
