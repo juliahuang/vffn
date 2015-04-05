@@ -61,6 +61,66 @@
   <div class="q introslide">FUN</div>
   <div class="q introslide">NIGHT</div>
 
+
+  <!-- Standard Question Slide -->
+  <div class="q titleslide">
+    ATS FAMILY FEUD
+  </div> 
+
+  <!-- Family Feud Slide! -->
+  <div class="q ff">
+    Give me a word a married man would use to fill in the blank: "I would ___ for sex"
+    <table>
+      <tr>
+        <td>pay</td>
+        <td class="points">26</td>
+      </tr>
+      <tr>
+        <td>kill</td>
+        <td class="points">12</td>
+      </tr>
+      <tr>
+        <td>beg</td>
+        <td class="points">12</td>
+      </tr>
+      <tr>
+        <td>die</td>
+        <td class="points">5</td>
+      </tr>
+      <tr>
+        <td>lie</td>
+        <td class="points">5</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Family Feud Slide! -->
+  <div class="q ff">
+    Give a phrase related to Norman
+    <table>
+      <tr>
+        <td>Cut your hair</td>
+        <td class="points">46</td>
+      </tr>
+      <tr>
+        <td>Fyeahnormandy</td>
+        <td class="points">20</td>
+      </tr>
+      <tr>
+        <td>Space</td>
+        <td class="points">12</td>
+      </tr>
+      <tr>
+        <td>Spaccccccccccccccce</td>
+        <td class="points">3</td>
+      </tr>
+      <tr>
+        <td>Brick</td>
+        <td class="points">2</td>
+      </tr>
+    </table>
+  </div>
+
   <!-- Standard Question Slide -->
   <div class="q">
     <h1>Victor's Family Fun Night!</h1>
@@ -97,21 +157,24 @@
   <div class="q t">
     Norman's nose is longer than Taiwan
   </div>
-  
 
 
 </div>
 <script type='text/javascript'>
 $(document).ready(function(){
+
   // constants!
-  var STARTSLIDE = 0;
-  
-  var timerValue = 10.0;
+  var STARTSLIDE = 5;
+  var TIMER_VALUE = 10.1;
+
+  var timerValue = TIMER_VALUE;
   var $qlist = [];
   var slide = STARTSLIDE;
   var pres = 0;
   var numEvents = 0;
   var timer;
+  var playingFF = false;
+  var answerDB = {};
 
   $('.question-pit').children('.q').each(function(){
     $qlist.push($(this));
@@ -125,7 +188,7 @@ $(document).ready(function(){
   var checkTimer = function($q) {
     if ($q.hasClass('t')) {
       $('.timer').show();
-      timerValue = 10;
+      timerValue = TIMER_VALUE;
       timer = setInterval(function() {
         timerValue -= 0.1;
         timerValue = Math.round(timerValue * 10) / 10
@@ -152,21 +215,73 @@ $(document).ready(function(){
       }
     }
   }
+
+  var checkFF = function($q) {
+    if ($q.hasClass('ff')) {
+      // We're playing family feud!
+      playingFF = true;
+      counter = 0;
+      $q.find('tr').each(function() {
+        counter ++;
+        answerDB[counter] = {a: $(this).find('td:nth-child(1)').text(), 
+                             p: $(this).find('td:nth-child(2)').text()}
+        $(this).find('td:nth-child(1)').html('&nbsp;');
+        $(this).find('td:nth-child(2)').html('&nbsp;');
+      });
+      console.log(answerDB);
+    }
+  }
+
+  var departFF = function($q) {
+    if ($q.hasClass('ff')) {
+      // We're leaving family feud. Clean up tables
+      counter = 1
+      $qlist[slide].find('tr').each(function() {
+        $(this).find('td:nth-child(1)').text(answerDB[counter].a);
+        $(this).find('td:nth-child(2)').text(answerDB[counter].p);
+        counter++;
+      });
+      answerDB = {};
+      playingFF = false;
+    }
+  }
+
+
+  var playFF = function(k) {
+    if (playingFF) {
+      answerIndex = parseInt(k) - 48;
+      if (answerIndex < 10 && answerIndex > 0) {
+        $q = $qlist[slide];
+        $q.find('tr:nth-child('+answerIndex+') td:nth-child(1)').text(answerDB[answerIndex].a);
+        $q.find('tr:nth-child('+answerIndex+') td:nth-child(2)').text(answerDB[answerIndex].p);
+        console.log(parseInt(k)-48);
+      }
+    }
+  }
+
   $("body").keydown(function(e) {
-    console.log(slide);
-    console.log(e.keyCode);
+    console.log('slide:' , slide);
+    console.log('keypress:', e.keyCode);
+    playFF(e.keyCode);
+
     if(e.keyCode == 37) { // left
       if (slide > 0) {
+        departFF($qlist[slide]);
         slide --;
         $('.question').html($qlist[slide]);
         checkTimer($qlist[slide]);
+        checkFF($qlist[slide]);
       }
+
     } else if(e.keyCode == 39) { // right
       if (slide < $qlist.length-1) {
+        departFF($qlist[slide]);
         slide ++;
         $('.question').html($qlist[slide]);
         checkTimer($qlist[slide]);
+        checkFF($qlist[slide]);
       }
+
     } else if(e.keyCode == 38) {
       pres += 1;
       $('.pres').text(pres);
