@@ -396,12 +396,13 @@ $(document).ready(function(){
           $('.timer').text("TIME'S UP");
           $('.timer').addClass('norman-red');
           $('.content').removeClass('content-shrink')
-          $('.content').removeClass('content-jiggle')
           clearInterval(timer);
         } else if (timerValue == 4.5) {
           $('.content').addClass('content-shrink')
         } else if (timerValue == 1.5) {
           $('.content').addClass('content-jiggle')
+        } else if (timerValue == 0.1) {
+          $('.content').removeClass('content-jiggle')
         } else {
           $('.timer').text(timerValue + zeros);
         }

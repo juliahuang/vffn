@@ -82,8 +82,8 @@ td:nth-child(2) {
   -moz-animation-duration: 0.1s;
   -moz-animation-name: jiggle;
   -moz-animation-iteration-count: infinite;
-  -webkit-transform: rotate(-1deg);
-  -moz-transform: rotate(-1deg);
+  -webkit-transform: translate3d(0, 150%, 0) scale3d(3.6, 3.6, 1) rotate(-1deg);
+  -moz-transform: translate3d(0, 150%, 0) scale3d(3.6, 3.6, 1) rotate(-1deg);
 }
 
 .scores {
