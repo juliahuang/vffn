@@ -41,6 +41,7 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 });
 
 var io = require('socket.io').listen(server);
+console.log(io);
 
 var SerialConnection = require('./lib/service');
 var serv = new SerialConnection(io);
