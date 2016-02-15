@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/2015.css" media="screen" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+  <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="content">
+  <div class="timer">
+    10
+  </div>
+
+  <div class="page">
+    <div class="content-container">
+      <div class="question">
+      </div>
+    </div>
+  </div>
+  <div class="scores">
+      <ul>
+        <li class="family-container f1">
+          <div class="place"></div>
+          <div class="score">0</div>
+          <div class="family">JBAPB</div>
+        </li>
+        <li class="family-container f2">
+          <div class="place"></div>
+          <div class="score">0</div>
+          <div class="family">BFFL</div>
+        </li>
+        <li class="family-container f3">
+          <div class="place"></div>
+          <div class="score">0</div>
+          <div class="family">> U</div>
+        </li>
+        <li class="family-container f4">
+          <div class="place"></div>
+          <div class="score">0</div>
+          <div class="family">Funky Bobasaurs</div>
+        </li>
+        <li class="family-container f5">
+          <div class="place"></div>
+          <div class="score">0</div>
+          <div class="family">Gangstas</div>
+        </li>
+      </ul>
+  </div>
+</div>
+</body>
+
+<div class="question-pit">
+  <div class="q"></div>
+  
+  <div class="q">[drumroll please]</div>
+  
+  <div class="q"></div>
+
+  <!-- Extra Big Slides -->
+  <div class="q introslide">VICTOR'S</div>
+  <div class="q introslide">FAMILY</div>
+  <div class="q introslide">FUN</div>
+  <div class="q introslide">NIGHT</div>
+
+  <!-- Standard Question Slide -->
+  <div class="q">
+    <h1>Victor's Family Fun Night!</h1>
+    <h2>HOSTED BY <strike>NORMAN</strike>  JULIA (:</h2>
+  </div>
+  
+  <div class="q"></div>
+
+  <div class="q">our first category tonight will be...</div>
+  <!-- Title Slide -->
+  <div class="q titleslide">
+    THE MORE YOU KNOW
+  </div>
+  <div class="q">How well do you know your family? You'll need to find the right person to hit the buzzer! Points will be awarded to the fastest families.</div>
+  <div class="q"><strong>READY?</strong></div>
+  
+  <div class="q">
+    Did you know? ATS was founded in 1991, making this year ATS's 25th anniversary. Have the oldest member of your family hit the buzzer!
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    Did you know? The average male height of Taiwan is 5'7.6'' and the average female height of Taiwan is 5'2.75''. Have the person whose height is closest to average hit the buzzer!
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    Did you know? You would cover a distance of 12,432 kilometers if you flew non-stop from Boston, Massachusetts to Taipei, Taiwan. Have the member of your family whose hometown is the furthest away from MIT hit the buzzer!
+  </div>
+
+  
+  
+  
+  
+  <div class="q"></div>
+  <div class="q">and for our next category</div>
+  <div class="q titleslide">
+    IRON CHEF ATS
+  </div>
+  <div class="q">Think you can survive in Kitchen Stadium? We'll provide the ingredients, and you provide the famous dish that they make.</div>
+  <div class="q">ALLEZ CUISINE</div>
+  
+  <div class="q">Round 1</div>
+  <div class="q">
+    <img src="/2016ironchef/water.jpg" height="300px" />
+  </div>
+  <div class="q">
+    <img src="/2016ironchef/water.jpg" height="300px" />
+    <img src="/2016ironchef/redbean.jpg" height="300px" />
+  </div>
+  <div class="q">
+    <img src="/2016ironchef/water.jpg" height="300px" />
+    <img src="/2016ironchef/redbean.jpg" height="300px" /><br/>
+    <img src="/2016ironchef/glutinous.jpg" height="300px" />
+  </div>
+  <div class="q">
+    Mochi!<br/>
+    <img src="/2016ironchef/mochi.jpg" width="70%" />
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">Round 2</div>
+  <div class="q">
+    <img src="/2016ironchef/water.jpg" height="200px" />
+  </div>
+  <div class="q">
+    <img src="/2016ironchef/water.jpg" height="200px" />
+    <img src="/2016ironchef/sugar.jpg" height="200px" />
+  </div>
+  <div class="q">
+    <img src="/2016ironchef/water.jpg" height="200px" />
+    <img src="/2016ironchef/sugar.jpg" height="200px" /><br/>
+    <img src="/2016ironchef/salt.jpg" height="200px" />
+  </div>
+  <div class="q">
+    <img src="/2016ironchef/water.jpg" height="200px" />
+    <img src="/2016ironchef/sugar.jpg" height="200px" /><br/>
+    <img src="/2016ironchef/salt.jpg" height="200px" />
+    <img src="/2016ironchef/butter.jpg" height="200px" />
+  </div>
+  <div class="q">
+    <img src="/2016ironchef/water.jpg" height="200px" />
+    <img src="/2016ironchef/sugar.jpg" height="200px" /><br/>
+    <img src="/2016ironchef/salt.jpg" height="200px" />
+    <img src="/2016ironchef/butter.jpg" height="200px" />
+    <img src="/2016ironchef/flour.jpg" height="200px" />
+  </div>
+    <div class="q">
+    <img src="/2016ironchef/water.jpg" height="200px" />
+    <img src="/2016ironchef/sugar.jpg" height="200px" /><br/>
+    <img src="/2016ironchef/salt.jpg" height="200px" />
+    <img src="/2016ironchef/butter.jpg" height="200px" />
+    <img src="/2016ironchef/flour.jpg" height="200px" />
+    <img src="/2016ironchef/eggs.jpg" height="200px" />
+  </div>
+  <div class="q">
+    <img src="/2016ironchef/water.jpg" height="200px" />
+    <img src="/2016ironchef/sugar.jpg" height="200px" /><br/>
+    <img src="/2016ironchef/salt.jpg" height="200px" />
+    <img src="/2016ironchef/butter.jpg" height="200px" />
+    <img src="/2016ironchef/flour.jpg" height="200px" />
+    <img src="/2016ironchef/eggs.jpg" height="200px" />
+    <img src="/2016ironchef/evapmilk.jpg" height="200px" />
+  </div>
+  <div class="q">
+    <img src="/2016ironchef/water.jpg" height="200px" />
+    <img src="/2016ironchef/sugar.jpg" height="200px" /><br/>
+    <img src="/2016ironchef/salt.jpg" height="200px" />
+    <img src="/2016ironchef/butter.jpg" height="200px" />
+    <img src="/2016ironchef/flour.jpg" height="200px" />
+    <img src="/2016ironchef/eggs.jpg" height="200px" />
+    <img src="/2016ironchef/evapmilk.jpg" height="200px" />
+    <img src="/2016ironchef/vanilla.jpg" height="200px" />
+  </div>
+  <div class="q">
+    Egg Tarts!<br/>
+    <img src="/2016ironchef/eggtarts.jpg" height="100%" />
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">Round 3</div>
+  <div class="q">
+    <img src="/2016ironchef/water.jpg" height="300px" />
+  </div>
+  <div class="q">
+    <img src="/2016ironchef/water.jpg" height="300px" />
+    <img src="/2016ironchef/sugar.jpg" height="300px" />
+  </div>
+  <div class="q">
+    <img src="/2016ironchef/water.jpg" height="300px" />
+    <img src="/2016ironchef/sugar.jpg" height="300px" />
+    <img src="/2016ironchef/honey.jpg" height="300px" />
+  </div>
+  <div class="q">
+    <img src="/2016ironchef/water.jpg" height="300px" />
+    <img src="/2016ironchef/sugar.jpg" height="300px" />
+    <img src="/2016ironchef/honey.jpg" height="300px" /><br/>
+    <img src="/2016ironchef/tea.jpg" height="300px" />
+  </div>
+  <div class="q">
+    <img src="/2016ironchef/water.jpg" height="300px" />
+    <img src="/2016ironchef/sugar.jpg" height="300px" />
+    <img src="/2016ironchef/honey.jpg" height="300px" /><br/>
+    <img src="/2016ironchef/tea.jpg" height="300px" />
+    <img src="/2016ironchef/boba.jpg" height="300px" />
+  </div>
+  <div class="q">
+    Boba!<br/>
+    <img src="/2016ironchef/bobatea.jpg" height="100%" />
+  </div>
+  
+  
+  
+  
+  
+  
+  <div class="q"></div>
+  <div class="q">phew! enough about food! our next category will be</div>
+  <div class="q titleslide">
+    ATS FAMILY FEUD
+  </div> 
+  <div class="q">Remember the surveys you took earlier? Try and guess which responses were the most popular among ATS members. The first team to buzz gets the first pick!</div>
+
+  <div class="q"></div>
+  <!-- Family Feud Slide! -->
+  <div class="q ff">
+    What is your favorite xifan sunday topping? Survey says...
+    <table>
+      <tr>
+        <td>Dan Bing</td> <td class="points">56</td>
+      </tr>
+      <tr>
+        <td>Bok Choy</td> <td class="points">20</td>
+      </tr>
+      <tr>
+        <td>Pi Dan (preserved eggs)</td> <td class="points">17</td>
+      </tr>
+      <tr>
+        <td>Pickles</td> <td class="points">6</td>
+      </tr>
+      <tr>
+        <td>Pork Sung</td> <td class="points">1</td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="q"></div>
+  <div class="q ff">
+    What is your favorite field day event? Survey says...
+    <table>
+      <tr>
+        <td>Fan Arena</td> <td class="points">35</td>
+      </tr>
+      <tr>
+        <td>Bun Eating</td> <td class="points">27</td>
+      </tr>
+      <tr>
+        <td>Wheelbarrow racing</td> <td class="points">20</td>
+      </tr>
+      <tr>
+        <td>Tug of War</td> <td class="points">11</td>
+      </tr>
+      <tr>
+        <td>Family Mixer (Big Huggie)</td> <td class="points">7</td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="q"></div>
+  <div class="q ff">
+    What is your favorite care package snack? Survey says...
+    <table>
+      <tr>
+        <td>Lychee Jelly</td> <td class="points">42</td>
+      </tr>
+      <tr>
+        <td>Pocky</td> <td class="points">22</td>
+      </tr>
+      <tr>
+        <td>Fruit Gummy</td> <td class="points">12</td>
+      </tr>
+      <tr>
+        <td>Rice Crackers</td> <td class="points">5</td>
+      </tr>
+      <tr>
+        <td>Koala March</td> <td class="points">4</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="q ff">
+  Who is your favorite Family Fun Night Host? Survey says...
+  <table>
+      <tr>
+        <td>Julia Huang</td> <td class="points">48</td>
+      </tr>
+      <tr>
+        <td>Norman Cao</td> <td class="points">31</td>
+      </tr>
+      <tr>
+        <td>Victor Hung</td> <td class="points">21</td>
+      </tr>
+      <tr>
+        <td>All of them</td> <td class="points">8</td>
+      </tr>
+      <tr>
+        <td>None</td> <td class="points">-8</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="q"></div>
+  <!-- Title Slide -->
+  <div class="q titleslide">
+    EVENT GEOGUESSR&#8482;
+  </div>
+
+  <div class="q">Each question will feature one photo. You must correctly identify the <strong>event</strong> the photo was taken at (don't worry about specifying the year)</div>
+
+  <div class="q">READY?</div>
+  <div class="q"><img src="/2016eventguessr/event-familypotluck-preview.png" height="500px"></div>
+  <div class="q"><img src="/2016eventguessr/event-familypotluck-answer.png" height="500px"></div>
+  <div class="q"><img src="/2016eventguessr/event-nightmarket.jpg" height="500px"></div>
+  <div class="q"><img src="/2016eventguessr/event-nightmarket-answer.jpg" height="500px"></div>
+  <div class="q"><img src="/2016eventguessr/event-lanternmaking-preview.png" height="500px"></div>
+  <div class="q"><img src="/2016eventguessr/event-lanternmaking-answer.jpg" height="500px"></div>
+  <div class="q"><img src="/2016eventguessr/event-fieldday-preview.png" height="500px"></div>
+  <div class="q"><img src="/2016eventguessr/event-fieldday-answer.png" height="500px"></div>
+  <div class="q"><img src="/2016eventguessr/event-strait2taiwan-preview.png" height="500px"></div>
+  <div class="q"><img src="/2016eventguessr/event-strait2taiwan-answer.png" height="500px"></div>
+
+  
+  
+  
+  
+  <!-- Blank Slide -->
+  <div class="q"></div>
+
+  <!-- Title Slide -->
+  <div class="q titleslide">
+    STANDARD TRIVIA
+  </div>
+  <div class="q">The delicious trivia you've been waiting for, first come first served! Answer right and you'll receive points, but answer wrong, and the question will go to the next family!</div>
+
+  <div class="q"></div>
+  <div class="q">
+    What was the date of the lunar new year in 2016?
+  </div>
+  <div class="q">
+    February 8, 2016
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    What is ATS's slogan?
+  </div>
+  <div class="q">
+    food, fun, family
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    How are 90% of ATS's emails signed?
+  </div>
+  <div class="q">
+    ~Your friendly ATS exec
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    How many families are on the ats.mit.edu/family page?
+  </div>
+  <div class="q">
+    <img src="/img/families.png" width="80%" />
+    <p> 7 families </p>
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    To the nearest 10, how many non-empty facebook albums does MIT ATS have?
+  </div>
+  <div class="q">
+    50 (there are actually 52)
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    What is the west-most dorm ATS has <b>NOT</b> held an event in?
+  </div>
+  <div class="q">
+    <h1>Random Hall</h1>
+    <p>Next -- Xifan Sunday 2014</p>
+    <p>New -- now</p>
+    <p>MacGregor -- Welcome Banquet 2015</p>
+    <p>BC - Pillows and Plushies 2016</p>
+    <p></p>
+    <p>Random Hall</p>
+    <p></p>
+    <p>Baker - Arts and Crafts 2011</p>
+    <p>McCormick - Xifan Sunday 2016</p>
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    How many events did we serve shaved ice at last year? (5 points) What are all the events we served shaved ice in the past year?
+    </div>
+  <div class="q">
+    <p>Activities Midway - April 18</p>
+    <p>Strait to Taiwan - April 22</p>
+    <p>Xifan Sunday - May 8</p>
+    <p>Orientation - September 4</p>
+    <p>Nightmarket - October 16</p>
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    We have a banner that says Association of Taiwanese Students! How many times does "ATS" show up on the banner?
+  </div>
+  <div class="q">
+      <img src="/img/banner.jpg" width="80%" />
+      <p> 4 times </p>
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    We hand out friendly ATS door signs every year! What does the last line of the doorsign say, character for character?
+  </div>
+  <div class="q">
+      <img src="/img/doorsign.jpg" width="80%" />
+      <p> ... welcome to the family </p>
+  </div>
+  
+  
+  
+  <div class="q"></div>
+  <!-- Title Slide -->
+  <div class="q titleslide">
+    LIGHTNING BOOLEAN
+  </div>
+  <div class="q">You will have 10 seconds to decide whether or not the statement you are shown is true or false. <strong>Buzz</strong> if you think it is <strong>TRUE</strong>, and <strong>don't buzz</strong> if you think it is <strong>FALSE</strong>. More points will be awarded to the first to buzz.</div>
+  
+  <div class="q"></div>
+
+  <!-- Use this for T/F Section. Comes with a timer! -->
+  <div class="q t">
+    <p>True or false? The number of Green buildings needed to stack on top of each other to achieve the height of Taipei 101 (+/- 10 feet) is 5.</p>
+    <p>(Green building is 21 floors)</p>
+    <p>(Taipei 101 is 101 floors)</p>
+    </div>
+  <div class="q">
+    <h1>FALSE</h1><br/>
+    <p>277 ft vs 1667 ft</p>
+    <p>(277 x 6 = 1662, so 6)</p>
+  </div>
+  
+  <div class="q t">
+    True or false? The population of Taiwan is approximately equal to the population of Massahusetts, counted by the city proper (+/- 10 million)
+  </div>
+  <div class="q">
+    <h1>FALSE</h1><br/>
+    <p>Taiwan - 23.46 million</p>
+    <p>Massachusetts - 6.745 million</p>
+  </div>
+  
+  <div class="q t">
+    True or false? The surface area of Sun Moon Lake, Taiwan's largest lake, is approximately equal to the surface area of Webster Lake, the largest lake in Massachusetts (+/- 1 km²)
+  </div>
+  <div class="q">
+    <h1>FALSE</h1><br/>
+    <p>Sun Moon Lake - 7.93 km²</p>
+    <p>Webster Lake - 5.84 km²</p>
+    <p></p>
+  </div>
+  <div class="q">
+    <h1>FALSE</h1><br/>
+    <p>Sun Moon Lake - 7.93 km²</p>
+    <p>Webster Lake - 5.84 km²</p>
+    <p>(Fun Fact: Webster Lake is also known as Lake Char­gogg­a­gogg­man­chaugg­a­gogg­chau­bun­a­gung­a­maugg)</p>
+  </div>
+
+  <div class="q t">
+    True or false? Taiwan's most prestigious university, National Taiwan University (also known colloquially as Tai Da), was founded over 50 years after MIT's founding.
+  </div>
+  <div class="q">
+    <h1>TRUE</h1><br/>
+    Tai Da - 1928 <br/>
+    MIT - 1867 <br/>
+  </div>
+
+  
+  
+  
+  
+  <div class="q"></div>
+  <div class="q">for our final round...</div>
+  <!-- Title Slide -->
+  <div class="q titleslide">
+    FINAL JEOPARDY
+  </div>
+  <div class="q">
+    send your family name and wager to our texting service at<br/>
+    <h2>617-800-9066</h2>
+  </div>
+  
+  <div class="q"></div>
+  
+  <div class="q">
+    How many care packages have we sold over the past 3 years (6 semesters)? Text your answers to<br/>
+    <h2>617-800-9066</h2>
+    <em>
+      Within 20 care packages - 5x<br/>
+      Within 50 care packages - 2x<br/>
+      Within 100 care packages - 1x<br/>
+    </em>
+  </div>
+  
+  <div class="q"></div>
+  
+  
+  <div class="q">
+    <p>Spring 2013 - 188</p>
+    <p>Fall 2013 - 467</p>
+    <p>Spring 2014 - 432</p>
+    <p>Fall 2014 - 465</p>
+    <p>Spring 2015 - 420</p>
+    <p>Fall 2015 - 457</p>
+    <p>TOTAL 2429</p>
+  </div>
+  
+  <div class="q"></div>
+
+  <div class="q titleslide">thanks for playing!</div> 
+  <div class="q">hope to see you next year :)</div> 
+  
+</div>
+<script type='text/javascript'>
+$(document).ready(function(){
+
+  // constants!
+  var STARTSLIDE = 0;
+  var TIMER_VALUE = 10.1;
+
+  var timerValue = TIMER_VALUE;
+  var $qlist = [];
+  var slide = STARTSLIDE;
+  var pres = 0;
+  var numEvents = 0;
+  var timer;
+  var playingFF = false;
+  var answerDB = {};
+
+  $('.question-pit').children('.q').each(function(){
+    $qlist.push($(this));
+  })
+  $('.question').html($qlist[slide]);
+  $.get('js/events.txt', function(data){
+     t = data.split('\n');
+     t.reverse();
+  })
+  
+  var checkTimer = function($q) {
+    if ($q.hasClass('t')) {
+      $('.timer').show();
+      timerValue = TIMER_VALUE;
+      timer = setInterval(function() {
+        timerValue -= 0.1;
+        timerValue = Math.round(timerValue * 10) / 10
+        if (Math.round(timerValue)*10 == timerValue*10) {
+          zeros = '.0';
+        } else {
+          zeros = '';
+        }
+        if (timerValue < 0) {
+          $('.timer').text("TIME'S UP");
+          $('.timer').addClass('norman-red');
+          $('.content').removeClass('content-shrink')
+          clearInterval(timer);
+        } else if (timerValue == 4.5) {
+          $('.content').addClass('content-shrink')
+        } else if (timerValue == 1.5) {
+          $('.content').addClass('content-jiggle')
+        } else if (timerValue == 0.1) {
+          $('.content').removeClass('content-jiggle')
+        } else {
+          $('.timer').text(timerValue + zeros);
+        }
+      }, 100)
+      console.log('timer round');
+    } else {
+      $('.timer').hide();
+      $('.timer').removeClass('norman-red');
+      if (timer) {
+        clearInterval(timer);
+      }
+    }
+  }
+
+  var checkFF = function($q) {
+    if ($q.hasClass('ff')) {
+      // We're playing family feud!
+      playingFF = true;
+      counter = 0;
+      $q.find('tr').each(function() {
+        counter ++;
+        answerDB[counter] = {a: $(this).find('td:nth-child(1)').text(), 
+                             p: $(this).find('td:nth-child(2)').text()}
+        $(this).find('td:nth-child(1)').html('&nbsp;');
+        $(this).find('td:nth-child(2)').html('&nbsp;');
+      });
+      console.log(answerDB);
+    }
+  }
+
+  var departFF = function($q) {
+    if ($q.hasClass('ff')) {
+      // We're leaving family feud. Clean up tables
+      counter = 1
+      $qlist[slide].find('tr').each(function() {
+        $(this).find('td:nth-child(1)').text(answerDB[counter].a);
+        $(this).find('td:nth-child(2)').text(answerDB[counter].p);
+        counter++;
+      });
+      answerDB = {};
+      playingFF = false;
+    }
+  }
+
+
+  var playFF = function(k) {
+    if (playingFF) {
+      answerIndex = parseInt(k) - 48;
+      if (answerIndex < 10 && answerIndex > 0) {
+        $q = $qlist[slide];
+        $q.find('tr:nth-child('+answerIndex+') td:nth-child(1)').text(answerDB[answerIndex].a);
+        $q.find('tr:nth-child('+answerIndex+') td:nth-child(2)').text(answerDB[answerIndex].p);
+      }
+    }
+  }
+
+  $("body").keydown(function(e) {
+    console.log('slide:' , slide);
+    console.log('keypress:', e.keyCode);
+
+    playFF(e.keyCode);
+
+    if(e.keyCode == 37) { // left
+      if (slide > 0) {
+        departFF($qlist[slide]);
+        slide --;
+        $('.question').html($qlist[slide]);
+        checkTimer($qlist[slide]);
+        checkFF($qlist[slide]);
+      }
+
+    } else if(e.keyCode == 39) { // right
+      if (slide < $qlist.length-1) {
+        departFF($qlist[slide]);
+        slide ++;
+        $('.question').html($qlist[slide]);
+        checkTimer($qlist[slide]);
+        checkFF($qlist[slide]);
+      }
+
+    } else if(e.keyCode == 38) {
+      pres += 1;
+      $('.pres').text(pres);
+      $('.pts').text(Math.pow(-2, pres-2));
+    } else if (e.keyCode == 40) {
+      pres -= 1;
+      $('.pres').text(pres);
+      $('.pts').text(Math.pow(-2, pres-2));
+    } else if (e.keyCode == 79) {
+      $('.question').html('<h1>OUCH!</h1>');
+    } else if (e.keyCode == 221) {
+      numEvents += 1;
+      $('.eve').text('');
+      for (i = 0; i < numEvents; i ++) {
+        $('.eve').append(t[i] + "... ")
+      }
+    } else if (e.keyCode == 219) {
+      numEvents -= 1;
+      $('.eve').text('');
+      for (i = 0; i < numEvents; i ++) {
+        $('.eve').append(t[i] + "... ")
+      }
+    }
+    
+  });
+})
+</script>
+<script type="text/javascript">
+  var place = 1;
+  var socket = io.connect('ws://localhost:3000');
+  socket.on('news', function (data) {
+    $('.f' + data.kp).addClass('buzzin');
+    $('.f' + data.kp).find('.place').addClass('place-' + place);
+    place ++;
+    if (data.kp == 'R') {
+      place = 1;
+      for (i = 1; i < 6 ; i ++) {
+        $('.f' + i).removeClass('buzzin');
+        for (j = 0; j < 6; j ++) {
+          $('.f' + i).find('.place').removeClass('place-' + j);
+        }
+      }
+    }
+  });
+  
+  var myDataRef = new Firebase('https://vffn.firebaseio.com/');
+  myDataRef.on('value', function(snapshot) {
+    o = snapshot.val();
+    for (ki in Object.keys(o))
+      $('.f' + (parseInt(ki) + 1)).find('.score').text(o['f' + (parseInt(ki) + 1)]);
+  })
+</script>
+
+</html>
