@@ -4,7 +4,7 @@
  */
 
 exports.index = function(req, res){
-  res.render('2016');
+  res.render('piphi');
 };
 
 exports.updater = function(req, res){

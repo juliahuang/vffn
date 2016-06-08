@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/2015.css" media="screen" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+  <script src="js/tabletop.js"></script>
+  <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="content">
+  <div class="timer">
+    10
+  </div>
+
+  <div class="page">
+    <div class="content-container">
+      <div class="question">
+      </div>
+    </div>
+  </div>
+  <div class="scores">
+      <ul>
+        <li class="family-container f1">
+          <div class="place"></div>
+          <div class="score">0</div>
+          <div class="family">Group 1</div>
+        </li>
+        <li class="family-container f2">
+          <div class="place"></div>
+          <div class="score">0</div>
+          <div class="family">Group 2</div>
+        </li>
+        <li class="family-container f3">
+          <div class="place"></div>
+          <div class="score">0</div>
+          <div class="family">Group 3</div>
+        </li>
+        <li class="family-container f4">
+          <div class="place"></div>
+          <div class="score">0</div>
+          <div class="family">Group 4</div>
+        </li>
+        <li class="family-container f5">
+          <div class="place"></div>
+          <div class="score">0</div>
+          <div class="family">Group 5</div>
+        </li>
+      </ul>
+  </div>
+</div>
+</body>
+
+<div class="question-pit">
+  <div class="q"></div>
+  
+  <div class="q">[drumroll please]</div>
+  
+  <div class="q"></div>
+
+  <!-- Extra Big Slides -->
+  <div class="q introslide">PI</div>
+  <div class="q introslide">PHI</div>
+  <div class="q introslide">TRIVIA</div>
+  <div class="q introslide">NIGHT</div>
+  <div class="q introslide">2016</div>
+
+  <!-- Standard Question Slide -->
+  <div class="q">
+    <h1>Pi Phi Trivia Night!</h1>
+    <h2>HOSTED BY JULIA (:</h2>
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">What is 7 x 11 x 13?</div>
+  <div class="q">lol jk <br> (it is 1001)</div>
+
+  <div class="q"></div>
+  <div class="q">our first category tonight will be...</div>
+  <!-- Title Slide -->
+  <div class="q titleslide">
+      THE MORE YOU KNOW
+  </div>
+  <div class="q">How well do you know your group? You'll need to find the right person to hit the buzzer! Points will be awarded to the fastest groups.</div>
+  <div class="q"><strong>READY?</strong></div>
+  
+  <div class="q">
+    Did you know? The oldest person to graduate from college was Agua Dulce at 99 years old. Have the oldest member of your group hit the buzzer!
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    Did you know? The tallest person in the world is Sultan Kösen at 8'3''. Have the tallest person of your group hit the buzzer!
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    Did you know? The house was a ghost town during spring break :( Have the member of your group who traveled the furthest for spring break hit the buzzer!
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="q"></div>
+  <div class="q titleslide">
+      DISNEY AND PIXAR
+  </div>
+  <div class="q">How well do you know these classic animated movies? Let's take a trip down memory lane back to our childhood <br>
+  (or maybe spring break)! <br> 
+  30 Points for the first group to answer correctly, 
+  <br> 20 points will be removed for incorrect answers. </div>
+  <div class="q"><strong>READY?</strong></div>
+  
+  <div class="q"></div>
+  <div class="q">
+  What is the name of the cowboy in Toy Story?
+  </div>
+  <div class="q">
+    Woody
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    What is the name of the Sleeping Beauty?
+  </div>
+  <div class="q">
+    Princess Aurora
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    What is the name of Mulan's pet dragon?
+  </div>
+  <div class="q">
+    Mushu
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    What is the name of the bird from UP?
+  </div>
+  <div class="q">
+    Kevin
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    Name the 7 dwarves from Snow White!
+  </div>
+  <div class="q">
+    Doc, Grumpy, Happy, Sleepy, Bashful, Sneezy, Dopey
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+  In Brave, what animal does Merida's mother turn into?
+  </div>
+  <div class="q">
+    a bear
+  </div>  
+
+  <div class="q"></div>
+  <div class="q">
+    What is the name of the black cat from Cinderella? (the one that belongs to the stepfamily)
+  </div>
+  <div class="q">
+    Lucifer
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    How many sisters does Ariel (the little mermaid) have?
+  </div>
+  <div class="q">
+    Six
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    Name one of the super powers of Violet from the Incredibles.
+  </div>
+  <div class="q">
+    invisibility or force fields or levitation
+    </div>
+
+  <div class="q"></div>
+  <div class="q">
+    Which character was named after our beloved Walt Disney?
+    </div>
+  <div class="q">
+    Wall-E <br>
+    (Walter Elias Disney)
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="q"></div>
+  <div class="q titleslide">
+    THORWBACK SONGS
+  </div>
+  <div class="q">Can you recognize that tune? <br>
+  10 Points for the song, 10 points for the artist<br>
+  There will be no penalty for the incorrect answer. </div>
+  <div class="q"><strong>READY?</strong></div>
+  
+  <div class="q"></div>
+  <div class="q">
+    "I Want it That Way" by The Backstreet Boys
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    "Unwell" - Matchbox Twenty
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    "The Sweet Escape" - Gwen Stefani
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    "Bye Bye Bye" - N'SYNC
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    "Wonderwall" - Oasis
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    "Baby One More Time" - Britney Spears  
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    "Promiscuous" - Nelly Furtado ft. Timbaland
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    "Hips Don't Lie" - Shakira
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    "Wannabe" - Spice Girls
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    "Dirty Little Secrets" - All American Rejects
+  </div>
+
+  <div class="q"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="q"></div>
+  <!-- Title Slide -->
+  <div class="q titleslide">
+    SISTER GUESSR&#8482;
+  </div>
+
+  <div class="q">Each question will feature one photo. You must correctly identify the <strong>two sisters</strong> who are in the photo. Oh, and there's a twist! ;)</div>
+
+  <div class="q">READY?</div>
+  <div class="q"><img src="/img/swap1.jpg" height="400px"><p></p></div>
+  <div class="q"><img src="/img/swap1.jpg" height="400px"><p>Maddie and Jackie</p></div>
+  <div class="q"><img src="/img/swap2.jpg" height="400px"><p></p></div>
+  <div class="q"><img src="/img/swap2.jpg" height="400px"><p>Abigail and Selina</p></div>
+  <div class="q"><img src="/img/swap3.jpg" height="400px"><p></p></div>
+  <div class="q"><img src="/img/swap3.jpg" height="400px"><p>Tania and Rebekah</p></div>
+  <div class="q"><img src="/img/swap4.jpg" height="400px"><p></p></div>
+  <div class="q"><img src="/img/swap4.jpg" height="400px"> <p>Linda  and Deepti</p></div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="q"></div>
+  <div class="q titleslide">
+    HARRY POTTER
+  </div>
+  <div class="q">Think you know the magical world of Harry Potter? Buzz in with the right answer and score points for your <strike> house</strike> group! </div>
+  <div class="q"><strong>READY?</strong></div>
+  
+  <div class="q"></div>
+  <div class="q">
+    What are the four houses of Hogwarts?
+  </div>
+  <div class="q">
+    Gryffindor, Ravenclaw, Hufflepuff, Slytherin
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    What is the name of Harry Potter's owl? 
+  </div>
+  <div class="q">
+    Hedwig
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    What is the name of the bookstore where students buy their books?
+  </div>
+  <div class="q">
+    Florish and Blotts
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    How much is catching the snitch worth?
+  </div>
+  <div class="q">
+    150 points
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    Which Weasley brother lost an ear?
+  </div>
+  <div class="q">
+    George 
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    Who were the 4 students chosen for the tri-wizard tournament? 
+  </div>
+  <div class="q">
+    Fleur Delacour, Victor Krum, Cedric Diggory, and Harry Potter
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    Name all of Ron Weasley’s siblings, from oldest to youngest. (no partial credit)
+  </div>
+  <div class="q">
+    Bill, Charlie, Percy, Fred, George, and Ginny
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    What is the name of Harry’s youngest son? 
+  </div>
+  <div class="q">
+    Albus Severus Potter
+  </div>
+  
+  <div class="q"></div>
+  <div class="q">
+    What sentences do you say before and after you use the Marauder's map?
+  </div>
+  <div class="q">
+    "I solemnly swear that I am up to no good." <br>
+    "Mischeif managed"
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    What are the true identities of the makers of the Marauder’s Map? <br>
+    Mooney, Wormtail, Padfoot, and Prongs.
+  </div>
+  <div class="q">
+    Remus Lupin, Peter Pettigrew, Sirius Black, and James Potter
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="q"></div>
+  <div class="q titleslide">
+      TAYLOR SWIFT
+  </div>
+  <div class="q">How well do you know Taylor Swift? Sing (or say) the line that comes after the one shown! <br>
+  30 Points for the first group to answer correctly <br>
+  There will be no penalty for the incorrect answer. </div>
+  <div class="q"><strong>READY?</strong></div>
+  
+  <div class="q"></div>
+  <div class="q">
+  You can tell me when it's over
+  </div>
+  <div class="q">
+  If the high was worth the pain <br>
+  (Blank Space)
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+  He's so tall and handsome as hell
+  </div>
+  <div class="q">
+  He's so bad but he does it so well <br>
+  (Wildest Dreams)
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+  I'm dancing on my own
+  </div>
+  <div class="q">
+  I make the moves up as I go  <br>
+  (Shake it Off)
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+  That you were Romeo, you were throwing pebbles,
+  </div>
+  <div class="q">
+  And my daddy said, "Stay away from Juliet" <br>
+  (Love Story)
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+  You don't know about me
+  </div>
+  <div class="q">
+  But I'll bet you want to <br>
+  (22)
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+  You got that James Dean daydream look in your eye
+  </div>
+  <div class="q">
+  And I got that red lip classic thing that you like <br>
+  (Style)
+  </div>  
+
+  <div class="q"></div>
+  <div class="q">
+    I'm in the room, it's a typical Tuesday night.
+  </div>
+  <div class="q">
+    I'm listening to the kind of music she doesn't like. <br>
+    (You Belong With Me)
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    I guess you didn't care, and I guess I liked that
+  </div>
+  <div class="q">
+    And when I fell hard you took a step back <br>
+    (I Knew You Were Trouble)  
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+    You go talk to your friends, talk to my friends, talk to me. 
+  </div>
+  <div class="q">
+    But we are never ever ever ever getting back together <br>
+    (We Are Never Ever Getting Back Together)
+  </div>
+
+  <div class="q"></div>
+  <div class="q">
+  He's the reason for the teardrops on my guitar (either)
+    </div>
+  <div class="q">
+    The only thing that keeps me wishing on a wishing star <br>
+    or <br>
+    The only one who's got enough of me to break my heart <br>
+    (Teardrops on my Guitar)
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <!-- Blank Slide -->
+  <div class="q"></div>
+  <!-- Title Slide -->
+  <div class="q titleslide">
+    LIGHTNING BOOLEAN
+  </div>
+  <div class="q">You will have 10 seconds to decide which came first. <strong>Buzz</strong> if you think it is <strong>the first option</strong>, and <strong>don't buzz</strong> if you think it is <strong>second option</strong>. More points will be awarded to the first to correctly buzz.</div>
+  
+  <div class="q"></div>
+
+  <!-- Use this for T/F Section. Comes with a timer! -->
+  <div class="q t">
+    <p> What came first? </p>
+    <p> Pepsi (BUZZ) </p>
+    <p> Coke (DON'T BUZZ) </p>
+    </div>
+  <div class="q">
+    <h1>Coke (DON'T BUZZ) </h1><br/>
+    <p>Coke (1886) before Pepsi (1898)</p>
+  </div>
+  
+  <div class="q t">
+    <p> What came first? </p>
+    <p> Batman (BUZZ) </p>
+    <p> Superman (DON'T BUZZ) </p>
+  </div>
+  <div class="q">
+    <h1>SUPERMAN (DON'T BUZZ) </h1><br/>
+    <p> Superman (1938) before Batman (1939)</p>
+  </div>
+  
+  <div class="q t">
+    <p> What came first? </p>
+    <p> Honda (BUZZ) </p>
+    <p> Toyota (DON'T BUZZ) </p>
+  </div>
+  <div class="q">
+    <h1>TOYOTA (DON'T BUZZ) </h1><br/>
+    <p> Toyota (1937) before Honda (1946)</p>
+  </div>
+
+  <div class="q t">
+    <p> What came first? </p>
+    <p> Adidas (BUZZ) </p>
+    <p> Nike (DON'T BUZZ) </p>
+  </div>
+  <div class="q">
+    <h1>ADIDAS (BUZZ) </h1><br/>
+    <p> Adidas (1924) before Nike (1959)</p>
+  </div>
+  
+  <div class="q t">
+    <p> What came first? </p>
+    <p> Cottonelle (BUZZ) </p>
+    <p> Charmin (DON'T BUZZ) </p>
+  </div>
+  <div class="q">
+    <h1>Charmin (DON'T BUZZ) </h1><br/>
+    <p> Charmin (1928) before Cottonelle (1972) </p>
+  </div>  
+  
+  
+  
+  <div class="q"></div>
+  <div class="q">for our final round...</div>
+  <!-- Title Slide -->
+  <div class="q titleslide">
+    FINAL JEOPARDY
+  </div>
+  <div class="q">
+    send your group name and wager to our texting service at<br/>
+    <h2>617-800-9066</h2>
+  </div>
+  
+  <div class="q"></div>
+  
+  <div class="q">
+    How many square feet is my (Julia Huang's) [double] room? Text your answers to<br/>
+    <h2>617-800-9066</h2>
+    <em>
+      Within 2 sq ft - 5x<br/>
+      Within 5 sq ft - 2x<br/>
+      Within 10 sq ft - 1x<br/>
+    </em>
+  </div>
+  
+  <div class="q"></div>
+  
+  
+  <div class="q">
+    <p>235 SQ FT</p>
+  </div>
+  
+  <div class="q"></div>
+
+  <div class="q titleslide">thanks for playing!</div> 
+  <div class="q">hope to see you next year :)</div> 
+  
+</div>
+<script type='text/javascript'>
+$(document).ready(function(){
+
+  // constants!
+  var STARTSLIDE = 0;
+  var TIMER_VALUE = 10.1;
+
+  var timerValue = TIMER_VALUE;
+  var $qlist = [];
+  var slide = STARTSLIDE;
+  var pres = 0;
+  var numEvents = 0;
+  var timer;
+  var playingFF = false;
+  var answerDB = {};
+
+  $('.question-pit').children('.q').each(function(){
+    $qlist.push($(this));
+  })
+  $('.question').html($qlist[slide]);
+  $.get('js/events.txt', function(data){
+     t = data.split('\n');
+     t.reverse();
+  })
+
+  var checkTimer = function($q) {
+    if ($q.hasClass('t')) {
+      $('.timer').show();
+      timerValue = TIMER_VALUE;
+      timer = setInterval(function() {
+        timerValue -= 0.1;
+        timerValue = Math.round(timerValue * 10) / 10
+        if (Math.round(timerValue)*10 == timerValue*10) {
+          zeros = '.0';
+        } else {
+          zeros = '';
+        }
+        if (timerValue < 0) {
+          $('.timer').text("TIME'S UP");
+          $('.timer').addClass('norman-red');
+          $('.content').removeClass('content-shrink')
+          clearInterval(timer);
+        } else if (timerValue == 4.5) {
+          $('.content').addClass('content-shrink')
+        } else if (timerValue == 1.5) {
+          $('.content').addClass('content-jiggle')
+        } else if (timerValue == 0.1) {
+          $('.content').removeClass('content-jiggle')
+        } else {
+          $('.timer').text(timerValue + zeros);
+        }
+      }, 100)
+      console.log('timer round');
+    } else {
+      $('.timer').hide();
+      $('.timer').removeClass('norman-red');
+      if (timer) {
+        clearInterval(timer);
+      }
+    }
+  }
+
+  var checkFF = function($q) {
+    if ($q.hasClass('ff')) {
+      // We're playing family feud!
+      playingFF = true;
+      counter = 0;
+      $q.find('tr').each(function() {
+        counter ++;
+        answerDB[counter] = {a: $(this).find('td:nth-child(1)').text(), 
+                             p: $(this).find('td:nth-child(2)').text()}
+        $(this).find('td:nth-child(1)').html('&nbsp;');
+        $(this).find('td:nth-child(2)').html('&nbsp;');
+      });
+      console.log(answerDB);
+    }
+  }
+
+  var departFF = function($q) {
+    if ($q.hasClass('ff')) {
+      // We're leaving family feud. Clean up tables
+      counter = 1
+      $qlist[slide].find('tr').each(function() {
+        $(this).find('td:nth-child(1)').text(answerDB[counter].a);
+        $(this).find('td:nth-child(2)').text(answerDB[counter].p);
+        counter++;
+      });
+      answerDB = {};
+      playingFF = false;
+    }
+  }
+
+
+  var playFF = function(k) {
+    if (playingFF) {
+      answerIndex = parseInt(k) - 48;
+      if (answerIndex < 10 && answerIndex > 0) {
+        $q = $qlist[slide];
+        $q.find('tr:nth-child('+answerIndex+') td:nth-child(1)').text(answerDB[answerIndex].a);
+        $q.find('tr:nth-child('+answerIndex+') td:nth-child(2)').text(answerDB[answerIndex].p);
+      }
+    }
+  }
+
+  var score_update = function () {
+    var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1WXzHRZ2pV1xUvsEwXocj41rK72LpoeHj15RsMDWGADs/pubhtml';
+    Tabletop.init( { key: public_spreadsheet_url,
+         callback: show_info,
+         simpleSheet: true } )
+    }
+
+  var show_info = function (data, tabletop) {
+    console.log(data);
+    for (var i = 0; i < data.length; i++) {
+      $('.f' + (parseInt(i) + 1)).find('.family').text(data[i]["Group"]);
+      $('.f' + (parseInt(i) + 1)).find('.score').text(data[i]["Score"]);
+    }
+  }
+
+  $("body").keydown(function(e) {
+    console.log('slide:' , slide);
+    console.log('keypress:', e.keyCode);
+
+    playFF(e.keyCode);
+
+    if (e.keyCode == 85) { // u for updating scores
+        console.log("updating");
+        score_update();
+    } else if(e.keyCode == 37) { // left
+      if (slide > 0) {
+        departFF($qlist[slide]);
+        slide --;
+        $('.question').html($qlist[slide]);
+        checkTimer($qlist[slide]);
+        checkFF($qlist[slide]);
+      }
+
+    } else if(e.keyCode == 39) { // right
+      if (slide < $qlist.length-1) {
+        departFF($qlist[slide]);
+        slide ++;
+        $('.question').html($qlist[slide]);
+        checkTimer($qlist[slide]);
+        checkFF($qlist[slide]);
+      }
+
+    } else if(e.keyCode == 38) {
+      pres += 1;
+      $('.pres').text(pres);
+      $('.pts').text(Math.pow(-2, pres-2));
+    } else if (e.keyCode == 40) {
+      pres -= 1;
+      $('.pres').text(pres);
+      $('.pts').text(Math.pow(-2, pres-2));
+    } else if (e.keyCode == 79) {
+      $('.question').html('<h1>OUCH!</h1>');
+    } else if (e.keyCode == 221) {
+      numEvents += 1;
+      $('.eve').text('');
+      for (i = 0; i < numEvents; i ++) {
+        $('.eve').append(t[i] + "... ")
+      }
+    } else if (e.keyCode == 219) {
+      numEvents -= 1;
+      $('.eve').text('');
+      for (i = 0; i < numEvents; i ++) {
+        $('.eve').append(t[i] + "... ")
+      }
+    } 
+  });
+})
+</script>
+
+<script type="text/javascript">
+  var place = 1;
+  var socket = io.connect('ws://localhost:3000');
+  socket.on('news', function (data) {
+    $('.f' + data.kp).addClass('buzzin');
+    $('.f' + data.kp).find('.place').addClass('place-' + place);
+    place ++;
+    if (data.kp == 'R') {
+      place = 1;
+      for (i = 1; i < 6 ; i ++) {
+        $('.f' + i).removeClass('buzzin');
+        for (j = 0; j < 6; j ++) {
+          $('.f' + i).find('.place').removeClass('place-' + j);
+        }
+      }
+    }
+  });
+</script>
+
+</html>
